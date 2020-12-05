@@ -45,16 +45,16 @@
                         <?php $no++ ; ?>
                             <tr>
                                 <td>{{ $no }}</td>
-                                <td>{{ $data->id_produk }}</td>
+                                <td>{{ $data->id }}</td>
                                 <td>{{ $data->nama_produk }}</td>
                                 <td>{{ $data->harga }}</td>
                                 <td>{{ $data->fungsi }}</td>
                                 <td>{{ $data->kategori_id }}</td>
                                 <td>{{ $data->stok}}</td>
                                 <td>  
-                                <form action="{{ route('produk.destroy' , $data->id_produk) }}" method="post">
+                                <form action="{{ route('produk.destroy' , $data->id) }}" method="post">
                                         @csrf                                  
-                                        <a href="{{ route('produk.edit', $data->id_produk) }}" 
+                                        <a href="{{ route('produk.edit', $data->id) }}" 
                                         class="btn btn-primary pull-right" style="margin-top; -8px">Edit</a>
                                         <button class="btn btn-danger pull-right"  
                                         onClick="return confirm('Apakah anda yakin 

@@ -11,13 +11,13 @@
         </div>
     @endif    
    <h2>Edit Data</h2>
-    <form action="{{ route('produk.update' , $produk->id_produk)}}" method="post">
+    <form action="{{ route('produk.update' , $produk->id)}}" method="post">
         @csrf
         
         <div class="form-group row">
             <label for="kode" class="col-sm-2 col-form-label">Kode Produk</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="kode" name="kode" value="{{$produk->id_produk}}">
+                <input type="text" class="form-control" id="kode" name="kode" value="{{$produk->id}}">
             </div>            
         </div>
         <div class="form-group row">
@@ -41,7 +41,7 @@
         <div class="form-group row">
             <label for="supplier" class="col-sm-2 col-form-label">Kategori</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="kategori" name="kategori" value="{{$produk->kategori}}">
+                <input type="text" class="form-control" id="kategori" name="kategori" value="{{$produk->kategori_id}}">
             </div>
         </div>
         <div class="form-group row">

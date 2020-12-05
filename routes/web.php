@@ -17,6 +17,7 @@ Route::get('/', 'ContohController@welcome');
 Route::get('/obat', 'ContohController@index');
 Route::get('/about', 'ContohController@about');
 Route::get('/contact', 'ContohController@contactus');
+Route::get('/produk', 'ContohController@index');
 
 
 //vitamin
@@ -62,7 +63,7 @@ Route::get('/new-forget', function(){
 Route::get('/produk', 'ProdukController@index')->name('produk.index');
 Route::get('/produk/create', 'ProdukController@create')->name('produk.create');   
 Route::post('/produk', 'ProdukController@store')->name('produk.store');   
-Route::get('/produk/edit/{id_produk}', 'ProdukController@edit')->name('produk.edit');
-Route::post('/produk/update/{id_produk}', 'ProdukController@update')->name('produk.update');
-Route::post('/produk/delete/{id_produk}', 'ProdukController@destroy')->name('produk.destroy');
-Route::get('/produk/search', 'ProdukController@search')->name('produk.search');
+Route::get('/produk/edit/{id}', 'ProdukController@edit')->name('produk.edit');
+Route::post('/produk/update/{id}', 'ProdukController@update')->name('produk.update');
+Route::post('/produk/delete/{id}', 'ProdukController@destroy')->name('produk.destroy');
+//Route::get('/produk/search', 'ProdukController@search')->name('produk.search');

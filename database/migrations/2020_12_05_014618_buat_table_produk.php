@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class BuatTabelProduk extends Migration
+class BuatTableProduk extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class BuatTabelProduk extends Migration
     public function up()
     {
         Schema::create('produk', function (Blueprint $table){
-            $table->string('id_produk');
+            $table->id();
             $table->string('nama_produk');
             $table->string('harga');
             $table->string('fungsi');
