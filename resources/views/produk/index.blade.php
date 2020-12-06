@@ -49,7 +49,7 @@
                                 <td>{{ $data->nama_produk }}</td>
                                 <td>{{ $data->harga }}</td>
                                 <td>{{ $data->fungsi }}</td>
-                                <td>{{ $data->kategori_id }}</td>
+                                <td>{{ $data->kategori_id->nama_kategori }}</td>
                                 <td>{{ $data->stok}}</td>
                                 <td>  
                                 <form action="{{ route('produk.destroy' , $data->id) }}" method="post">

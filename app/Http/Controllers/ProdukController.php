@@ -14,7 +14,7 @@ class ProdukController extends Controller
     public function index(){
         $batas = 5;
         $jumlah_produk = Produk::count();
-        $produk = Produk::orderBy('id', 'desc')->paginate($batas);
+        $produk = Produk::with('kategori')->latest()->paginate($batas);
         $no=$batas * ($produk->currentPage() - 1);
         return view('produk.index', compact('produk', 'no', 'jumlah_produk'));
     }

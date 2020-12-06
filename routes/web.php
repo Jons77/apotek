@@ -66,4 +66,13 @@ Route::post('/produk', 'ProdukController@store')->name('produk.store');
 Route::get('/produk/edit/{id}', 'ProdukController@edit')->name('produk.edit');
 Route::post('/produk/update/{id}', 'ProdukController@update')->name('produk.update');
 Route::post('/produk/delete/{id}', 'ProdukController@destroy')->name('produk.destroy');
-//Route::get('/produk/search', 'ProdukController@search')->name('produk.search');
+Route::get('/produk/search', 'ProdukController@search')->name('produk.search');
+
+//kategori
+Route::get('/kategori', 'KategoriController@index')->name('kategori.index');
+Route::get('/kategori/create', 'KategoriController@create')->name('kategori.create');   
+Route::post('/kategori', 'KategoriController@store')->name('kategori.store');   
+Route::get('/kategori/edit/{id}', 'KategoriController@edit')->name('kategori.edit');
+Route::post('/kategori/update/{id}', 'KategoriController@update')->name('kategori.update');
+Route::post('/kategori/delete/{id}', 'KategoriController@destroy')->name('kategori.destroy');
+Route::get('/kategori/search', 'KategoriController@search')->name('kategori.search');
