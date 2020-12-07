@@ -76,3 +76,8 @@ Route::get('/kategori/edit/{id}', 'KategoriController@edit')->name('kategori.edi
 Route::post('/kategori/update/{id}', 'KategoriController@update')->name('kategori.update');
 Route::post('/kategori/delete/{id}', 'KategoriController@destroy')->name('kategori.destroy');
 Route::get('/kategori/search', 'KategoriController@search')->name('kategori.search');
+
+//POS
+Route::get('pos', 'POSController@index');
+
+Route::get('produk/ajax/{id}', 'POSController@get_produk');
