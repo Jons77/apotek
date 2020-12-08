@@ -79,5 +79,4 @@ Route::get('/kategori/search', 'KategoriController@search')->name('kategori.sear
 
 //POS
 Route::get('pos', 'POSController@index');
-
 Route::get('produk/ajax/{id}', 'POSController@get_produk');

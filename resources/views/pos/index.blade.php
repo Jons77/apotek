@@ -1,5 +1,4 @@
 @extends('layout.master')
-
 @section('content')
 <div class="container">
     <div class="row">
@@ -80,7 +79,7 @@
             </div>
         </div>
     </div>
-</div>
+
 @endsection
 
 @section('scripts')
@@ -113,21 +112,21 @@
 
                         nilai += '<td>';
                         nilai += data.id;
-                        nilai += '<input type="hidden" class="form-control" name="produk[]" value="'+data.id'">';
+                        nilai += '<input type="hidden" class="form-control" name="produk[]" value="'+data.id+'">';
                         nilai += '</td>';
 
                         nilai += '<td>';
-                        nilai += data.id;
+                        nilai += data.nama_produk;
                         nilai += '</td>';
 
                         nilai += '<td>';
                         nilai += data.harga;
-                        nilai += '<input type="hidden" class="form-control" name="harga[]" value="'+data.harga'">';
+                        nilai += '<input type="hidden" class="form-control" name="harga[]" value="'+data.harga+'">';
                         nilai += '</td>';
 
                         nilai += '<td>';
                         nilai += qty;
-                        nilai += '<input type="hidden" class="form-control" name="produk[]" value="'+qty'" min="1">';
+                        nilai += '<input type="hidden" class="form-control" name="produk[]" value="'+qty+'" min="1">';
                         nilai += '</td>';
 
                         var xtotal = 0;
@@ -135,7 +134,7 @@
 
                         nilai += '<td>';
                         nilai += xtotal;
-                        nilai += '<input type="hidden" class="form-control" name="produk[]" value="'+xtotal'" min="1">';
+                        nilai += '<input type="hidden" class="form-control" name="produk[]" value="'+xtotal+'" min="1">';
                         nilai += '</td>';
 
                         nilai += '<td>';                        
@@ -144,7 +143,7 @@
 
                         nilai += '</tr>';
 
-                        var total = parseInt($("input[name='grand_total']").val());
+                        var total = parseInt($("input[name='grand_tot   al']").val());
                         total += data.harga * qty;
 
                         $("input[name='grand_total']").val(total);

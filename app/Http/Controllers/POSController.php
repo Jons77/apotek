@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 use App\Produk;
 
 class POSController extends Controller{
+
+    public function __construct(){
+     $this->middleware('kasir');
+    }
+    
     public function index(){
         $tittle = 'Penjualan Produk';
         return view('pos.index', compact('tittle'));
