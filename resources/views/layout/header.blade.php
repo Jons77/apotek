@@ -1,4 +1,4 @@
-<div class="container">
+    <div class="container">
 <nav class="navbar navbar-expand-lg navbar-primary bg-light">
 <a class="navbar-brand" href="/">Aplikasi Apotek</a>
   <div class="collapse navbar-collapse" id="navbarNav">

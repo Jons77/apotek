@@ -104,6 +104,7 @@
                     dataType:'json',
                     url:url,
                     success:function(data){
+                        // console.log(data);
                         _this.val('');
 
                         var nilai = '';
@@ -119,31 +120,30 @@
                         nilai += data.nama_produk;
                         nilai += '</td>';
 
-                        nilai += '<td>';
+                        nilai += '<td class="harga">';
                         nilai += data.harga;
                         nilai += '<input type="hidden" class="form-control" name="harga[]" value="'+data.harga+'">';
                         nilai += '</td>';
 
                         nilai += '<td>';
                         nilai += qty;
-                        nilai += '<input type="hidden" class="form-control" name="produk[]" value="'+qty+'" min="1">';
+                        nilai += '<input type="hidden" class="form-control" name="qty[]" value="'+qty+'" min="1">';
                         nilai += '</td>';
 
                         var xtotal = 0;
                         xtotal += data.harga * qty;
-
                         nilai += '<td>';
                         nilai += xtotal;
-                        nilai += '<input type="hidden" class="form-control" name="produk[]" value="'+xtotal+'" min="1">';
+                        nilai += '<input type="hidden" class="form-control xtotal" name="xtotal[]" value="'+xtotal+'" min="1">';
                         nilai += '</td>';
 
-                        nilai += '<td>';                        
-                        nilai += '<button class="btn btn-xs btn-danger">Hapus</button>';
+                        nilai += '<td>';
+                        nilai += '<button class="btn btn-xs btn-danger hapus"><i class="fa fa-trash"></i></button>';
                         nilai += '</td>';
 
                         nilai += '</tr>';
 
-                        var total = parseInt($("input[name='grand_tot   al']").val());
+                        var total = parseInt($("input[name='grand_total']").val());
                         total += data.harga * qty;
 
                         $("input[name='grand_total']").val(total);
@@ -154,47 +154,49 @@
                 })
             }
         })
-    
-    $('body').on('click','.hapus',function(e){
-        e.preventDefault();
 
-        var xtotal = $(this).closest("tr").find(".xtotal").val();
-        var total = $("input[name='grand_total']").val() - xtotal;
-        $("input[name='grand_total']").val(total);
-
-        $(this).closest('tr').remove();
-    })
-
-    $("button[type='submit']").click(function(e){
-        var grand_total = parseInt($("input[name='grand_total']").val());
-        var jumlah_bayar = parseInt($("input[name='jumlah_bayar']").val());
-
-        if (jumlah_bayar < grand_total){
+        $('body').on('click','.hapus',function(e){
             e.preventDefault();
-            alert('Uang Kurang');
-        }
-    })
 
-    $("input[name='jumlah_bayar']").keyup(function(e){
-        var grand_total = parseInt($("input[name='grand_total']").val());
-        var jumlah_bayar = parseInt($(this).val());
-        var kembalian = jumlah_bayar - grand_total;
-        $(".kembalian").text(kembalian);
-        $("input[name='kembalian']").val(kembalian);
+            var xtotal = $(this).closest("tr").find(".xtotal").val();
+            var total = $("input[name='grand_total']").val() - xtotal;
+            $("input[name='grand_total']").val(total);
 
-        if(kembalian > 0){
-            $("button[type='submit']").removeAttr("disabled");
-        } else {
-            $("button[type='submit']").attr("disabled", true);
-        }
-    })
+            $(this).closest('tr').remove();
+        })
 
-    $('.btn-refresh').click(function(e){
-        e.preventDefault();
-        $('.preloader').fadeIn();
-        location.reload();
+        $("button[type='submit']").click(function(e){
+            var grand_total = parseInt($("input[name='grand_total']").val());
+            var jumlah_bayar = parseInt($("input[name='jumlah_bayar']").val());
+
+            if (jumlah_bayar < grand_total) {
+                e.preventDefault();
+                alert('Uang Kurang');
+            }
+        })
+
+        $("input[name='jumlah_bayar']").keyup(function(e){
+            var grand_total = parseInt($("input[name='grand_total']").val());
+            var jumlah_bayar = parseInt($(this).val());
+            var kembalian = jumlah_bayar - grand_total;
+            $(".kembalian").text(kembalian);
+            $("input[name='kembalian']").val(kembalian);
+
+            if(kembalian > 0){
+                $("button[type='submit']").removeAttr("disabled");
+            } else {
+                $("button[type='submit']").attr("disabled", true);
+            }
+        })
+
+        // btn refresh
+        $('.btn-refresh').click(function(e){
+            e.preventDefault();
+            $('.preloader').fadeIn();
+            location.reload();
+        })
+
     })
-})
 </script>
 
 @endsection
